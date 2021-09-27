@@ -30,7 +30,6 @@
             "styles": [
               "src/styles.scss",
               "./node_modules/bootstrap/dist/css/bootstrap.css"
-
             ],
             "scripts": []
           },
@@ -125,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "admin-green-repack"
+    }
+  },
+  "defaultProject": "admin-green-repack",
+  "cli": {
+    "analytics": false
+  }
 }
