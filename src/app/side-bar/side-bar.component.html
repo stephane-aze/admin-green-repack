@@ -1,0 +1,63 @@
+<nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+  <div class="position-sticky">
+    <div class="list-group list-group-flush mx-3 mt-4">
+      <a
+
+      routerLink="/dashboard" routerLinkActive="active"
+        class="list-group-item list-group-item-action py-2 ripple"
+        aria-current="true"
+        active
+      ><span>Tableau bord</span>
+      </a>
+      <a routerLink="/users" routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple ">
+        <span>Utilisateurs</span>
+      </a>
+      <a routerLink="/categories" routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple"
+        ><span>Catégories</span></a
+      >
+      <a routerLink="/proposals" routerLinkActive="active" class="list-group-item list-group-item-action py-2 ripple"
+        ><span>Propositions</span></a
+      >
+    </div>
+  </div>
+</nav>
+<!-- Sidebar -->
+
+<!-- Navbar -->
+<nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+
+
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">
+      <img
+        src="../../assets/logo_avec_nom.png"
+        height="25"
+        alt=""
+        loading="lazy"
+      />
+    </a>
+
+    <!-- Right links -->
+    <ul class="navbar-nav ms-auto d-flex flex-row">
+      <!-- Notification dropdown -->
+
+      <li>
+        Admin
+      </li>
+
+      <!-- Logout -->
+      <li class="nav-item dropdown">
+        <button class="btn btn-danger"
+        (click)="logout()"
+        >
+        Deconnexion
+        </button>
+
+      </li>
+    </ul>
+  </div>
+  <!-- Container wrapper -->
+</nav>

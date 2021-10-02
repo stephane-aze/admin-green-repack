@@ -1,0 +1,35 @@
+<app-sidebar></app-sidebar>
+<main style="margin-top: 58px;">
+  <div class="container pt-4">
+    <div>
+      <h2>
+        Faire une offre
+      </h2>
+      <div>
+        <form [formGroup]="formProposal" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="email">Valeur</label>
+            <input type="number"
+                  id="value"
+                  class="form-control"
+                  formControlName="value"
+                  ngClass="{'is-invalid': submitted && f.value.errors }" >
+
+                <div class="alert-danger" *ngIf="f.value.errors && f.submitted">
+                  <div *ngIf="f.value.errors.required">Le champ est obligatoire</div>
+
+                </div>
+          </div>
+          <div class="form-group">
+            <input type="submit" class="btn btn-primary btnSubmit" [disabled]="formProposal.invalid" value="Negocier" />
+            <button type="button" class="btn btn-danger" (click)="checkout()">Refuser</button>
+            <button type="button" class="btn btn-success"(click)="acceptToDeal()">Accepter</button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</main>

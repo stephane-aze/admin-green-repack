@@ -1,0 +1,49 @@
+<div class="body-margin">
+  <div class="col-md-6 login-form-2">
+    <div class="card-container">
+
+          <h2>Connexion</h2>
+          <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="email">Adresse mail</label>
+              <input type="text"
+                    id="email"
+                    class="form-control"
+                    formControlName="email"
+                    ngClass="{'is-invalid': submitted && f.email.errors }" >
+
+                  <div class="alert-danger" *ngIf="f.email.errors && f.submitted">
+                    <div *ngIf="f.email.errors.required">Email est obligatoire</div>
+                    <div *ngIf="f.email.errors.email">
+                      Le champ doit être une adresse mail valide
+                    </div>
+                  </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Mot de passe</label>
+              <input type="password"
+                    id="password"
+                    class="form-control"
+                    formControlName="password"
+                    ngClass=" {'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="f.submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Le mot de passe est obligatoire</div>
+                    </div>
+                    <div *ngIf="f.password.invalid && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors">Le mot de passe non valide</div>
+                    </div>
+            </div><br>
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary btnSubmit" [disabled]="signinForm.invalid" value="Se connecter" />
+            </div>
+            <div class="form-group">
+                <a href="#" class="btnForgetPwd">Mot de passe oublié?</a>
+            </div>
+          </form>
+          <p class="text-danger">{{ errorMessage }}</p>
+
+    </div>
+  </div>
+
+</div>

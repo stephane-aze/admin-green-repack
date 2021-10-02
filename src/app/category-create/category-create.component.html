@@ -1,0 +1,39 @@
+<app-sidebar></app-sidebar>
+<main style="margin-top: 58px;">
+  <div class="container pt-4">
+    <h2>Categorie</h2>
+    <form [formGroup]="formC" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="slug">Slug</label>
+        <input type="text"
+              id="value"
+              class="form-control"
+              formControlName="slug"
+              ngClass="{'is-invalid': submitted && f.slug.errors }" >
+
+            <div class="alert-danger" *ngIf="f.slug.errors && f.submitted">
+              <div *ngIf="f.slug.errors.required">Le champ est obligatoire</div>
+
+            </div>
+      </div>
+      <div class="form-group">
+        <label for="name">Nom</label>
+        <input type="text"
+              id="value"
+              class="form-control"
+              formControlName="name"
+              ngClass="{'is-invalid': submitted && f.name.errors }" >
+
+            <div class="alert-danger" *ngIf="f.name.errors && f.submitted">
+              <div *ngIf="f.name.errors.required">Le champ est obligatoire</div>
+
+            </div>
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btn btn-primary btnSubmit" [disabled]="formC.invalid" value="Créer" />
+
+      </div>
+
+    </form>
+  </div>
+</main>
