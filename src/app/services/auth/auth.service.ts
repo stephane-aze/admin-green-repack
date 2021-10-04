@@ -33,7 +33,7 @@ export class AuthService {
   }
 
   logout(){
-    sessionStorage.removeItem('currentUser');
+    localStorage.removeItem('currentUser');
     this.currentUserSubject?.next(this.nullUser);
   }
 
@@ -49,7 +49,7 @@ export class AuthService {
   }
 
   public get isLoggedIn(){
-    if(sessionStorage.getItem('currentUser')) return true;
+    if(localStorage.getItem('currentUser')) return true;
     else return false;
   }
 
