@@ -38,7 +38,7 @@ export class AuthService {
   }
 
   public createUser(user: Auth){
-    sessionStorage.setItem('currentUser', JSON.stringify(user));
+    localStorage.setItem('currentUser', JSON.stringify(user));
     this.currentUserSubject?.next(user);
   }
 
