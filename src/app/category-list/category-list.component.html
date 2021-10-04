@@ -6,7 +6,25 @@
 
       <button class="btn btn-primary" (click)="goToCreateCategory()">Créer une categorie</button>
     </div>
-
+    <hr noshade>
+    <section *ngIf="categories$ | async as categories; else loading" data-testid="display-categories">
+      <h2>Liste des categories</h2>
+    <table class="table">
+      <thead>
+        <th>Slug</th>
+        <th>Nom</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of this.categories" >
+          <td>{{category.slug}}</td>
+          <td>{{category.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </section>
+    <ng-template #loading>
+      En attente...
+    </ng-template>
 
   </div>
 </main>

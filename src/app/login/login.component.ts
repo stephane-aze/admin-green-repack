@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/services/auth/auth.service';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -34,6 +34,14 @@ export class LoginComponent implements OnInit {
       password,
       email
     }
+    this.authService.login(loginAuth).subscribe(
+      (data)=>{
+      console.log(data)
+      this.router.navigate(['/dashboard']);
+    },
+    (err)=>{
+      this.errorMessage = err;
+    })
   }
 
 }

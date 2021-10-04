@@ -63,18 +63,7 @@ export class AuthService {
   }
 
   login(param : any): Observable<any>{
-    return this.httpClient.post<any>(API_URL + '/api/auth/login',param);
+    return this.httpClient.post<any>(API_URL + '/api/login_admin',param);
   }
-
-  registerMerchant(param : any): Observable<any>{
-    return this.httpClient.post<any>(API_URL + '/api/auth/register/marchand',param);
-  }
-  registerAsso(param : any): Observable<any>{
-    return this.httpClient.post<any>(API_URL + '/api/auth/register/association',param);
-  }
-  registerCustomer(param : any): Observable<any>{
-    return this.httpClient.post<any>(API_URL + '/api/auth/register/customer',param);
-  }
-
 
 }

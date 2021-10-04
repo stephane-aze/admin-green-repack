@@ -14,6 +14,7 @@ import { CategoryCreateComponent } from './category-create/category-create.compo
 import { CategoryListComponent } from './category-list/category-list.component';
 import { ProposalListComponent } from './proposal-list/proposal-list.component';
 import { LoginComponent } from './login/login.component';
+import { UploadImageComponent } from './upload-image/upload-image.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { LoginComponent } from './login/login.component';
     CategoryListComponent,
     ProposalCreateComponent,
     ProposalListComponent,
-    LoginComponent
+    LoginComponent,
+    UploadImageComponent
 
   ],
   imports: [
