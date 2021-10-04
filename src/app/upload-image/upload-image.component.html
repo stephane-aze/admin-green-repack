@@ -1,0 +1,24 @@
+<app-sidebar></app-sidebar>
+<main style="margin-top: 58px;">
+  <div class="container pt-4">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="photos">Image</label>
+        <input type="file"
+              id="value"
+              class="form-control"
+              formControlName="photos"
+              ngClass="{'is-invalid': submitted && f.photos.errors }" >
+
+            <div class="alert-danger" *ngIf="f.photos.errors && f.submitted">
+              <div *ngIf="f.photos.errors.required">Le champ est obligatoire</div>
+
+            </div>
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btn btn-primary btnSubmit" [disabled]="form.invalid" value="Upload" />
+      </div>
+
+    </form>
+  </div>
+</main>
