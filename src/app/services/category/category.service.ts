@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import { Category } from 'src/app/models/Category';
+import { AuthService } from '../auth/auth.service';
 
 const API_URL = environment.API_URL;
 
@@ -15,13 +16,20 @@ export class CategoryService {
       'Content-Type': 'application/json'
     })
   }
-  constructor(private http: HttpClient) {}
+  token:any;
+  constructor(private http: HttpClient,private utilisateurService: AuthService) {}
 
   getCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(`${API_URL}/api/category`);
+    this.token = this.utilisateurService.currentUserValue.token;
+    let httpHeader = new HttpHeaders().set('auth-token',this.token!);
+
+    return this.http.get<Category[]>(`${API_URL}/api/category`,{headers: httpHeader});
   }
   createCategory(category:any) {
-    return this.http.post(`${API_URL}/api/category/create`,category);
+    this.token = this.utilisateurService.currentUserValue.token;
+    let httpHeader = new HttpHeaders().set('auth-token',this.token!);
+
+    return this.http.post(`${API_URL}/api/category/create`,category,{headers: httpHeader});
   }
 
 }

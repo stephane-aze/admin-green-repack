@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Auth } from 'src/app/models/Auth';
 import { User } from 'src/app/models/User';
 import { environment } from 'src/environments/environment';
 
@@ -16,18 +17,18 @@ export class AuthService {
       'Content-Type': 'application/json'
     })
   }
-  private nullUser = new User(null);
-  private currentUserSubject?: BehaviorSubject<User>;
-  public currentUser?: Observable<User>;
+  private nullUser = new Auth(null);
+  private currentUserSubject?: BehaviorSubject<Auth>;
+  public currentUser?: Observable<Auth>;
 
   token?: string = "";
 
   constructor(private httpClient: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(sessionStorage.getItem('currentUser') || '{}'));
+    this.currentUserSubject = new BehaviorSubject<Auth>(JSON.parse(sessionStorage.getItem('currentUser') || '{}'));
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  public get currentUserValue(): User {
+  public get currentUserValue(): Auth {
     return this.currentUserSubject!.value;
   }
 
@@ -36,24 +37,14 @@ export class AuthService {
     this.currentUserSubject?.next(this.nullUser);
   }
 
-  public createUser(user: User){
+  public createUser(user: Auth){
     sessionStorage.setItem('currentUser', JSON.stringify(user));
     this.currentUserSubject?.next(user);
   }
 
-  public updateUser(updatedUser: any){
-    this.token = this.currentUserValue.accessToken;
-    let httpHeader = new HttpHeaders().set('x-access-token',this.token!);
-    return this.httpClient.put<any>(API_URL + '/user/edit/' + updatedUser.id,updatedUser, {headers: httpHeader});
-  }
-
-  public getUpdatedUser(){
-    return this.httpClient.get<any>(API_URL + '/user/' + this.currentUserValue.id);
-  }
-
-  public getUser(): Observable<User> {
+  public getUser(): Observable<Auth> {
     return this.httpClient.get('/').pipe(map(response => {
-      return new User(response);
+      return new Auth(response);
     }))
   }
 
@@ -63,7 +54,7 @@ export class AuthService {
   }
 
   login(param : any): Observable<any>{
-    return this.httpClient.post<any>(API_URL + '/api/login_admin',param);
+    return this.httpClient.post<any>(API_URL + '/api/auth/login_admin',param);
   }
 
 }

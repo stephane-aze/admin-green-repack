@@ -21,9 +21,8 @@ export class ImageService {
   }
 
   upload(param:any){
-    this.token = this.utilisateurService.currentUserValue.accessToken;
+    this.token = this.utilisateurService.currentUserValue.token;
     let httpHeader = new HttpHeaders().set('x-access-token',this.token!);
-    return this.httpClient.post<any>(API_URL + '/api/merchant/photos/upload',param/*,{headers: httpHeader}*/);
-    return this.httpClient.post<any>(API_URL + '/auth/collaborateur',param,{headers: httpHeader});
+    return this.httpClient.post<any>(API_URL + '/api/merchant/photos/upload',param,{headers: httpHeader});
   }
 }
