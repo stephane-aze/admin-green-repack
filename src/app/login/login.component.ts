@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(loginAuth).subscribe(
       (data)=>{
       console.log(data)
+      this.authService.createUser(data)
       this.router.navigate(['/dashboard']);
     },
     (err)=>{

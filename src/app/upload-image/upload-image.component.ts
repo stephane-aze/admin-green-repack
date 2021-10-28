@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ImageService } from '../services/image/image.service';
 
 
@@ -11,7 +12,7 @@ import { ImageService } from '../services/image/image.service';
 export class UploadImageComponent implements OnInit {
   form: FormGroup;
   errorMessage: string;
-  constructor(private formBuilder: FormBuilder, private imageService: ImageService) { }
+  constructor(private formBuilder: FormBuilder,private router:Router, private imageService: ImageService) { }
 
   ngOnInit(): void {
   }
@@ -28,7 +29,7 @@ export class UploadImageComponent implements OnInit {
 
     this.imageService.upload(formData).subscribe(
       (data) =>{
-        console.log(data)
+        this.router.navigate(['/dashboard']);
     },
       (error)=>{console.error('error caught in component')
       this.errorMessage = error;

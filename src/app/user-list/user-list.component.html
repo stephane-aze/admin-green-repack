@@ -1,6 +1,30 @@
 <app-sidebar></app-sidebar>
 <main style="margin-top: 58px;">
-  <div class="container pt-4">
-    <p>list works!</p>
+  <div class="body-margin">
+    <h2>Les utilisateurs non actifs</h2>
+    <section *ngIf="users$ | async as users; else loading">
+      <h2>Liste des categories</h2>
+      <table class="table">
+        <thead>
+          <th>Email</th>
+          <th>Nom</th>
+          <th>Role</th>
+          <th>Action</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of this.users" >
+            <td>{{user.email}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.role}}</td>
+            <td><button class="btn btn-primary" (click)="validateUser(user._id)">Valider</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <ng-component #loading>
+      Aucune information
+    </ng-component>
   </div>
+
 </main>
+

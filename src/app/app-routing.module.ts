@@ -8,6 +8,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { ProposalCreateComponent } from './proposal-create/proposal-create.component';
 import { ProposalListComponent } from './proposal-list/proposal-list.component';
+import { UploadImageComponent } from './upload-image/upload-image.component';
 import { UserListComponent } from './user-list/user-list.component';
 
 
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path:"create_category", component: CategoryCreateComponent,canActivate: [AuthGuard]},
   {path:"proposals", component: ProposalListComponent,canActivate: [AuthGuard]},
   {path:"create_proposal", component: ProposalCreateComponent,canActivate: [AuthGuard]},
+  {path:"upload-image-product", component: UploadImageComponent,canActivate: [AuthGuard]},
   {path:"", component: LoginComponent},
 ]
 

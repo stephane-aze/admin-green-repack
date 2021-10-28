@@ -1,5 +1,5 @@
 export class User {
-  id!: number;
+  _id!: number;
   name!: string;
   email!: string;
   phone!: string;
@@ -11,7 +11,7 @@ export class User {
 
   constructor(values: any){
       if(values){
-          this.id = values.id;
+          this._id = values._id;
           this.name = values.name;
           this.email = values.email;
           this.phone = values.phone;
