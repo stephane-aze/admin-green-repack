@@ -1,7 +1,7 @@
 <app-sidebar></app-sidebar>
 <main style="margin-top: 58px;">
   <div class="container pt-4">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <form [formGroup]="form1" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="photos">Image</label>
         <input type="file"
@@ -16,7 +16,7 @@
             </div>
       </div>
       <div class="form-group">
-        <input type="submit" class="btn btn-primary btnSubmit" [disabled]="form.invalid" value="Upload" />
+        <input type="submit" class="btn btn-primary btnSubmit" [disabled]="form1.invalid" value="Upload" />
       </div>
 
     </form>

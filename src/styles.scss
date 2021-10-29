@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+.error.mat-snack-bar-container{
+  background: #cc0000;
+  color: white;
+  margin: 0 !important;
+  position: absolute;
+  top: 60px;
+  right: 25px;
+}
+
+.success.mat-snack-bar-container{
+  background: #00cc00;
+  color: white;
+  margin: 0 !important;
+  position: absolute;
+  top: 60px;
+  right: 25px;
+}

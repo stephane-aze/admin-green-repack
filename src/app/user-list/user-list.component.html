@@ -3,7 +3,6 @@
   <div class="body-margin">
     <h2>Les utilisateurs non actifs</h2>
     <section *ngIf="users$ | async as users; else loading">
-      <h2>Liste des categories</h2>
       <table class="table">
         <thead>
           <th>Email</th>

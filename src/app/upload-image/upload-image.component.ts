@@ -10,22 +10,22 @@ import { ImageService } from '../services/image/image.service';
   styleUrls: ['./upload-image.component.scss']
 })
 export class UploadImageComponent implements OnInit {
-  form: FormGroup;
+  form1: FormGroup;
   errorMessage: string;
   constructor(private formBuilder: FormBuilder,private router:Router, private imageService: ImageService) { }
 
   ngOnInit(): void {
   }
   initForm() {
-    this.form = this.formBuilder.group({
+    this.form1 = this.formBuilder.group({
       photos: ['', [Validators.required]],
     });
   }
-  get f() { return this.form.controls; }
+  get f() { return this.form1.controls; }
   onSubmit() {
 
     const formData: FormData = new FormData();
-    formData.append('photos', this.form.get('photos').value);
+    formData.append('photos', this.form1.get('photos').value);
 
     this.imageService.upload(formData).subscribe(
       (data) =>{

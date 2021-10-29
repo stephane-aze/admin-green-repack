@@ -15,6 +15,9 @@ import { CategoryListComponent } from './category-list/category-list.component';
 import { ProposalListComponent } from './proposal-list/proposal-list.component';
 import { LoginComponent } from './login/login.component';
 import { UploadImageComponent } from './upload-image/upload-image.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatTabsModule} from '@angular/material/tabs';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,9 @@ import { UploadImageComponent } from './upload-image/upload-image.component';
     AppRoutingModule,
     FormsModule,
     CommonModule,
+    MatTabsModule,
+    MatSnackBarModule,
+    MatButtonModule,
     ReactiveFormsModule,
     HttpClientModule,
   ],

@@ -38,15 +38,15 @@ export class CategoryCreateComponent implements OnInit {
     }
 
 
-    this.categoryService.createCategory(category).pipe(map(
+    this.categoryService.createCategory(category).subscribe(
       (data) => {
-        
+        //this.a
         this.router.navigate(['/categories']);
       },
       (error) => {
         this.errorMessage = error;
       }
-    ));/**/
+    );/**/
   }
 
 }
